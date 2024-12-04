@@ -11,8 +11,8 @@ intents.voice_states = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-voice_channel_ids = [123456789, 123456789]  # Replace with the desired voice channel ID
-category_ids = [123456789, 123456789]  # Replace with the desired category ID
+voice_channel_id = [123456789, 123456789]  # Replace with the desired voice channel ID
+category_id = [123456789, 123456789]  # Replace with the desired category ID
 
 
 @bot.event
@@ -23,8 +23,8 @@ async def on_ready():
 
 @bot.event
 async def on_voice_state_update(member, before, after):
-    if after.channel and after.channel.id in voice_channel_ids:
-        categories = [category for category in member.guild.categories if category.id in category_ids]
+    if after.channel and after.channel.id in voice_channel_id:
+        categories = [category for category in member.guild.categories if category.id in category_id]
 
         if not categories:
             return
